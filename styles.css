@@ -1,0 +1,441 @@
+:root {
+  --gold: rgb(221, 171, 94);
+  --bronze: rgb(160, 132, 99);
+  --charcoal: rgb(66, 71, 84);
+  --blue: rgb(7, 122, 153);
+  --blue-tint: rgb(148, 178, 191);
+  --bg: #0a0f1c;
+  --ink: #e9eef7;
+  --muted: #a9b1c7;
+  --radius: 14px;
+  --maxw: 1100px;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  font-family: Calibri, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+    Arial, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: Georgia, "Times New Roman", serif;
+  margin-top: 0;
+}
+body {
+  margin: 0;
+  line-height: 1.65;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 10000;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 0.75rem;
+  background: var(--blue);
+  color: #fff;
+  border-radius: 0.5rem;
+}
+
+a {
+  color: #bde7ff;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.btn {
+  display: inline-block;
+  background: var(--blue);
+  color: #fff;
+  border: 0;
+  padding: 0.75rem 1rem;
+  border-radius: 0.8rem;
+  font-weight: 700;
+}
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--blue);
+  color: var(--ink);
+}
+.btn-red {
+  background: #c62828;
+}
+
+.container {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding: 1rem;
+}
+.muted {
+  color: var(--muted);
+}
+.center {
+  text-align: center;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgb(66, 71, 84);
+  backdrop-filter: saturate(130%) blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.hdr-inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 1rem;
+}
+.brand img {
+  display: block;
+}
+
+.hamburger,
+.search-btn {
+  position: fixed;
+  top: 1rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(7, 122, 153, 0.95);
+  border: 2px solid var(--gold);
+  color: #fff;
+  cursor: pointer;
+}
+.hamburger {
+  left: 1rem;
+  z-index: 1100;
+}
+.search-btn {
+  right: 1rem;
+  z-index: 1100;
+}
+.hamburger .bar {
+  position: relative;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  display: inline-block;
+}
+.hamburger .bar::before,
+.hamburger .bar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #fff;
+}
+.hamburger .bar::before {
+  top: -6px;
+}
+.hamburger .bar::after {
+  top: 6px;
+}
+
+.site-nav {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 78%;
+  max-width: 320px;
+  background: var(--charcoal);
+  transform: translateX(-100%);
+  transition: transform 0.25s ease;
+  padding: 5.5rem 1rem 2rem;
+  box-shadow: 10px 0 40px rgb(66, 71, 84);
+}
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.site-nav a {
+  display: block;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.7rem;
+}
+.site-nav a:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+.nav-open .site-nav {
+  transform: translateX(0);
+}
+.nav-open .hamburger {
+  display: none;
+} hamburger disappears when menu appears
+
+.main .section {
+  padding: min(12vh, 7rem) 0;
+}
+
+.hero {
+  position: relative;
+  padding: 0;
+}
+.slider {
+  position: relative;
+  overflow: hidden;
+}
+.slides {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+.slide {
+  position: relative;
+  min-width: 100%;
+  min-height: 68vh;
+  display: grid;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.45);
+}
+.slide-content {
+  position: relative;
+  grid-area: 1/1;
+  margin-left: auto;
+  width: min(700px, 90%);
+  padding: min(8vh, 5rem) 1rem;
+  text-align: right;
+}
+.slide-content h2 {
+  font-size: clamp(1.8rem, 2.4vw + 1rem, 3rem);
+  color: var(--gold);
+}
+
+.slider-ui {
+  position: absolute;
+  inset: auto 0 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+.prev,
+.next {
+  background: rgb(66, 71, 84);
+  color: #fff;
+  border: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+}
+.dots {
+  display: flex;
+  gap: 0.4rem;
+  justify-content: center;
+  align-items: center;
+}
+.dots button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: transparent;
+}
+.dots button[aria-selected="true"] {
+  background: #fff;
+}
+
+.about .container p {
+  max-width: 70ch;
+}
+
+.offerings .accordion {
+  display: grid;
+  gap: 1rem;
+}
+.acc-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  background: #0f1a2f;
+  color: var(--ink);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius);
+  padding: 0.9rem 1rem;
+  text-align: left;
+  font-weight: 700;
+}
+.acc-panel {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius);
+  margin-top: 0.5rem;
+  padding: 1rem;
+  background: #0b152a;
+}
+
+.values .grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.values .card {
+  background: #0f1a2f;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: var(--radius);
+}
+.values h3 {
+  color: var(--blue);
+}
+.icon {
+  filter: grayscale(20%);
+}
+@media (min-width: 900px) {
+  .values .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+.contact-left address {
+  font-style: normal;
+  color: var(--muted);
+}
+.field label {
+  display: block;
+  margin: 0.4rem 0 0.2rem;
+}
+.field input,
+.field textarea {
+  width: 100%;
+  background: #0e1733;
+  color: var(--ink);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 0.7rem 0.8rem;
+  border-radius: 0.7rem;
+}
+.error {
+  display: block;
+  color: #ffb4b4;
+  min-height: 1.2rem;
+}
+@media (min-width: 900px) {
+  .contact-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.site-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+.narrow {
+  max-width: 900px;
+  margin-inline: auto;
+  padding: 1rem;
+}
+.arrow {
+  display: inline-block;
+  font-size: 2rem;
+  text-decoration: none;
+  border: 2px solid var(--blue);
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.6rem;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+dialog {
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem;
+  background: #0f1a2f;
+  color: var(--ink);
+}
+.search-form input[type="search"] {
+  width: min(80vw, 600px);
+  padding: 0.75rem 1rem;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #0e1733;
+  color: var(--ink);
+}
+.search-form .actions {
+  margin-top: 0.75rem;
+  text-align: right;
+}
+
+@media (min-width: 1000px) {
+  .site-nav {
+    position: static;
+    transform: none;
+    width: auto;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  .hamburger {
+    display: none;
+  } 
+  /* desktop inline nav; hamburger hidden */
+}
+/* ALWAYS show hamburger (all breakpoints) */
+.hamburger{ display:flex !important }
+
+/* Keep nav as off-canvas drawer at all widths */
+.site-nav{
+  position: fixed; inset: 0 auto 0 0;
+  width: 78%; max-width: 320px;
+  transform: translateX(-100%);
+  transition: transform .25s ease;
+}
+.nav-open .site-nav{ transform: translateX(0) }
+.nav-open .hamburger{ display: none }
+
+/* Neutralize any desktop overrides that switch to horizontal nav */
+@media (min-width: 1000px){
+  .site-nav{ position: fixed; transform: translateX(-100%); width: 78%; max-width: 320px; padding: 5.5rem 1rem 2rem }
+  .site-nav ul{ display: grid; gap: .75rem } /* prevent flex row */
+  .hamburger{ display: flex }                 /* keep hamburger visible */
+}
+:root{
+  --hamburger-size: 48px;   /* match your .hamburger width/height */
+  --hamburger-gap: 12px;    /* the gap you want between them */
+}
+
+.hdr-inner{
+  /* original padding + space for the hamburger + gap */
+  padding-left: calc(1rem + var(--hamburger-size) + var(--hamburger-gap)) !important;
+}

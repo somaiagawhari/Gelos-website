@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Gelos Enterprises</title>
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header" role="banner">
+    <div class="hdr-inner">
+      <a href="index.html" class="brand" aria-label="Gelos Home">
+        <img src="/assets/img/logo4.png" alt="Gelos Enterprises logo" width="100" height="56">
+      </a>
+      <a class="back-home" href="index.html" aria-label="Back to Home">↩ Home</a>
+    </div>
+  </header>
+  <main id="main" class="main" role="main">
+    <section class="section contact">
+      <div class="container contact-layout">
+        <div class="contact-left">
+          <h1>Contact Us</h1>
+          <address>
+            Improving operations through Gelos products &amp; services
+          </address>
+          <p><a class="btn btn-outline" href="case-study-operations.html">Read More</a></p>
+        </div>
+        <div class="contact-right">
+          <form id="contactForm" novalidate aria-describedby="form-desc">
+            <p id="form-desc" class="muted">All fields are required.</p>
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" maxlength="100" required inputmode="text" autocomplete="name" />
+              <small class="error" id="nameError" aria-live="polite"></small>
+            </div>
+            <div class="field">
+              <label for="phone">Phone Number</label>
+              <input id="phone" name="phone" maxlength="10" required inputmode="numeric" autocomplete="tel" />
+              <small class="error" id="phoneError" aria-live="polite"></small>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" maxlength="300" rows="5" required></textarea>
+              <small class="error" id="messageError" aria-live="polite"></small>
+            </div>
+            <button class="btn" type="submit">Send</button>
+            <small class="error" id="formError" aria-live="assertive"></small>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; <span id="year"></span> Gelos Enterprises.</p>
+  </footer>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
